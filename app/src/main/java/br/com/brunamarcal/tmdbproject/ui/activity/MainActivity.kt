@@ -1,7 +1,8 @@
-package br.com.brunamarcal.tmdbproject
+package br.com.brunamarcal.tmdbproject.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.brunamarcal.tmdbproject.R
 
 class MainActivity : AppCompatActivity() {
 
