@@ -6,6 +6,7 @@ import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import br.com.brunamarcal.tmdbproject.pageadapter.HomePageAdapter
 import br.com.brunamarcal.tmdbproject.ui.activity.home.viewmodel.HomeViewModel
+import kotlinx.android.synthetic.main.activity_base_home.*
 import kotlinx.coroutines.Dispatchers
 
 class HomeActivity : AppCompatActivity() {
@@ -34,26 +35,8 @@ class HomeActivity : AppCompatActivity() {
         val repository = Repository()
         viewModel = HomeViewModel.HomeViewModelProviderFactory(repository, Dispatchers.IO).create(HomeViewModel::class.java)
 
+        viewPagerMain.adapter = fragmentAdapter
+        tabsMain.setupWithViewPager(viewPagerMain)
 
-//        viewModel.getMovie(BuildConfig.API_KEY, "pt-BR", false)
-//
-//        viewModel.movieResponse.observe(this, Observer { response ->
-//            when (response.status){
-//                Status.SUCCESS -> {
-//                    response.data?.let {
-//                        Log.d("HomeActivity", "Filme -> ${it.movieResult[0].originalTitle}")
-//                    }
-//                }
-//                Status.ERROR -> {
-//                    response.errorMessage?.let {
-//                        Log.d("HomeActivity", "Error -> $it")
-//                    }
-//                }
-//                Status.LOADING -> {
-//
-//                }
-//            }
-//
-//        })
     }
 }

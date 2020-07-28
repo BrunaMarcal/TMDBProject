@@ -27,20 +27,13 @@ class HomeViewModel(private val repository: Repository, private val ioDispatcher
   }
    private fun handleMovieResponse(response: Response<MovieResponse>): State<MovieResponse>{
         if (response.isSuccessful){
+            movieResponse.value = State.loading(false)
             response.body()?.let { result ->
                 return State.success(result)
             }
         }
         return State.errorMessage(response.message(), response.code())
     }
-
-
-
-
-
-
-
-
 
 
     class HomeViewModelProviderFactory(private val repository: Repository, private val ioDispatcher: CoroutineDispatcher): ViewModelProvider.Factory{

@@ -10,13 +10,13 @@ import br.com.brunamarcal.tmdbproject.data.model.MovieResult
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class MovieAdapter(val movieList: List<MovieResult>) :
+class MovieAdapter(val movieList: List<MovieResult>, val clickMovie: ((movie: MovieResult) -> Unit)):
     RecyclerView.Adapter<MovieAdapter.AdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return AdapterViewHolder(itemView)
+        return AdapterViewHolder(itemView, clickMovie)
     }
 
     override fun getItemCount() = movieList.count()
@@ -25,7 +25,7 @@ class MovieAdapter(val movieList: List<MovieResult>) :
         holder.bind(movieList[position])
     }
 
-    class AdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class AdapterViewHolder(itemView: View, private val clickMovie: (movie: MovieResult) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val txtTitle = itemView.txtMovieTitle
         private val txtDate = itemView.txtMovieDate
         private val posterPath = itemView.imagePosterPath
@@ -40,6 +40,10 @@ class MovieAdapter(val movieList: List<MovieResult>) :
             movie.posterPath.let {
                 picasso.load("""${BuildConfig.BASE_URL_IMAGE}${movie.posterPath}""")
                     .into(posterPath)
+            }
+
+            itemView.setOnClickListener {
+                clickMovie.invoke(movie)
             }
 
         }
