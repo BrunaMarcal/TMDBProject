@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ui.activity.detail.DetailActivity">
 
     <ImageView
@@ -41,6 +42,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
         android:textStyle="bold"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDetailDate"
@@ -51,7 +53,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="@+id/txtMovieDetailTitle"
         app:layout_constraintStart_toStartOf="@+id/txtMovieDetailTitle"
         app:layout_constraintTop_toBottomOf="@+id/txtMovieDetailTitle"
@@ -64,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:textStyle="bold"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="@+id/txtDetailGenre"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtDetailGenre"
@@ -75,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="@+id/imageViewDetail"
         app:layout_constraintStart_toStartOf="@+id/imageViewDetail"
         app:layout_constraintTop_toBottomOf="@+id/txtDetailVote"

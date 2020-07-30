@@ -3,4 +3,6 @@
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="person">Person</string>
+    <string name="my_favorite">Meus Favoritos</string>
+
 </resources>

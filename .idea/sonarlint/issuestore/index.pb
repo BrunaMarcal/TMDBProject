@@ -43,8 +43,6 @@ Kapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/MovieAdapter.kt,8\
 Uapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/detail/DetailActivity.kt,2\9\294ce2c9dc752c127405c59c358ca742f9b5aa12
 R
 "app/src/main/res/values/styles.xml,f\7\f79cc2688e29fcbc286fda14ae07b27c9e83690f
-R
-"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 ~
 Napp/src/main/java/br/com/brunamarcal/tmdbproject/data/database/modeldb/User.kt,7\5\75eb8f11b911159514975db721994721d363ddfa
 Å
@@ -57,3 +55,11 @@ Vapp/src/main/java/br/com/brunamarcal/tmdbproject/data/database/converter/Conver
 Zapp/src/main/java/br/com/brunamarcal/tmdbproject/data/database/modeldb/FavoriteMovieDao.kt,5\c\5c92211718a4171598a1a3af9e700144b8482a53
 ~
 Napp/src/main/java/br/com/brunamarcal/tmdbproject/data/database/TmdbDatabase.kt,4\9\49dedb3c40649479039f976e0f467f8b3e01434e
+~
+Napp/src/main/java/br/com/brunamarcal/tmdbproject/data/util/SharedPreference.kt,c\3\c34d58510e2e720da51333e685404588f1bfe761
+û
+napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/favoritemovie/viewmodel/FavoriteMovieViewModel.kt,6\7\67fae96af4f9c8d0d112b695a7a0cd96341edce7
+ì
+capp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/favoritemovie/FavoriteMovieActivity.kt,0\e\0e40c89c06ba58acc6a6f5c062b675b64074c7c6
+~
+Napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/FavoriteAdapter.kt,b\e\bec2e6dfa298f788f8e7c185ec1d62da943b8f8c
