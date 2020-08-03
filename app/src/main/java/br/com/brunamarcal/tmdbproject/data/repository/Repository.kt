@@ -22,9 +22,11 @@ class Repository(context: Context) {
         userDao.insertUser(user)
     }
 
-    fun getUser(email: String, password: String){
-        userDao.selectedUser(email, password)
-    }
+//    fun getUser(email: String, password: String): LiveData<User>{
+//       return userDao.selectedUser(email, password)
+//    }
+
+    fun getUser (email: String, password: String): LiveData<User> = userDao.selectedUser(email, password)
 
     fun getUserByEmail(email: String){
         userDao.selectedEmail(email)

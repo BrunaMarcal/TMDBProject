@@ -1,14 +1,13 @@
 package br.com.brunamarcal.tmdbproject.ui.activity.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import br.com.brunamarcal.tmdbproject.pageadapter.HomePageAdapter
 import br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.FavoriteMovieActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.home.viewmodel.HomeViewModel
-import br.com.brunamarcal.tmdbproject.ui.fragment.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_base_home.*
 import kotlinx.coroutines.Dispatchers

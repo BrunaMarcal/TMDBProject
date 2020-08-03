@@ -2,7 +2,6 @@ package br.com.brunamarcal.tmdbproject.ui.activity.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import br.com.brunamarcal.tmdbproject.BuildConfig
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovie
@@ -12,7 +11,6 @@ import br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.viewmodel.Favori
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.coroutines.Dispatchers
 
 class DetailActivity : AppCompatActivity() {
@@ -33,7 +31,7 @@ class DetailActivity : AppCompatActivity() {
         txtDetailVote.text = movie.voteAverage.toString()
         txtDetailOverview.text = movie.overview
 
-        fabDetail.setOnClickListener {
+        fabDelete.setOnClickListener {
             viewModel.insertFavoriteMovie(FavoriteMovie(movie.id,
                 "bruna@zup.com",
                 movie.posterPath,
@@ -43,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
                 movie.originalTitle,
                 movie.voteAverage))
 
-            Snackbar.make(fabDetail, "Favoritado com Sucesso!", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(fabDelete, "Favoritado com Sucesso!", Snackbar.LENGTH_SHORT).show()
         }
     }
 }

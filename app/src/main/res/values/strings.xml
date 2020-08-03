@@ -5,5 +5,9 @@
     <string name="person">Person</string>
     <string name="my_favorite">Meus Favoritos</string>
     <string name="details_movie">Detalhes do Filme</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="email">E-mail</string>
 
 </resources>
