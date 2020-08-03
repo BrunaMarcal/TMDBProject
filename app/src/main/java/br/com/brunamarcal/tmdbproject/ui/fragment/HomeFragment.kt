@@ -25,7 +25,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as HomeActivity).viewModel
 
-
         viewModel.getMovie(BuildConfig.API_KEY, "pt-BR", false)
 
         viewModel.movieResponse.observe(viewLifecycleOwner, Observer { movieResponse ->

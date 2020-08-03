@@ -4,5 +4,6 @@
     <string name="favorite">Favorite</string>
     <string name="person">Person</string>
     <string name="my_favorite">Meus Favoritos</string>
+    <string name="details_movie">Detalhes do Filme</string>
 
 </resources>

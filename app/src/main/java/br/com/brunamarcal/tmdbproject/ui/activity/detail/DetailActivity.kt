@@ -12,6 +12,7 @@ import br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.viewmodel.Favori
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.coroutines.Dispatchers
 
 class DetailActivity : AppCompatActivity() {

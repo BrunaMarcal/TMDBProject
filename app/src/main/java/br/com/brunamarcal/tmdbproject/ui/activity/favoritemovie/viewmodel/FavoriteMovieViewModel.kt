@@ -2,6 +2,7 @@ package br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import br.com.brunamarcal.tmdbproject.core.State
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovie
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import kotlinx.coroutines.CoroutineDispatcher

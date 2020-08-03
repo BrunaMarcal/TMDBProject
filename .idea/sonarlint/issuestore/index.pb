@@ -33,8 +33,6 @@ Papp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/FavoriteFragment.k
 Lapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/HomeFragment.kt,c\d\cd70041db755b06f33f12217200894278b9e6d93
 Å
 Qapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/home/HomeActivity.kt,7\c\7cc585cca3300baa66f0857962cd68a912cbfda7
-]
--app/src/main/res/layout/fragment_favorite.xml,d\f\df77f99ce98ed8cd0a46047fc0481d0474d15bfc
 
 Oapp/src/main/java/br/com/brunamarcal/tmdbproject/pageadapter/HomePageAdapter.kt,0\b\0bbce34ecb20a160736c0d2959826e39ada30aa9
 {

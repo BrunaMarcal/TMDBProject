@@ -10,21 +10,25 @@ import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovie
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class FavoriteAdapter(val favoriteMovie: List<FavoriteMovie>): RecyclerView.Adapter<FavoriteAdapter.AdapterFavoriteViewHolder>() {
+class FavoriteAdapter(val favoriteMovie: List<FavoriteMovie>, val clickFavoriteMovie: ((favoriteMovie: FavoriteMovie) -> Unit)
+) : RecyclerView.Adapter<FavoriteAdapter.AdapterFavoriteViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteAdapter.AdapterFavoriteViewHolder {
-    val itemFavoriteView =  LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return FavoriteAdapter.AdapterFavoriteViewHolder(itemFavoriteView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterFavoriteViewHolder {
+        val itemFavoriteView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
+        return AdapterFavoriteViewHolder(itemFavoriteView, clickFavoriteMovie)
 
     }
 
     override fun getItemCount() = favoriteMovie.count()
 
-    override fun onBindViewHolder(holder: FavoriteAdapter.AdapterFavoriteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdapterFavoriteViewHolder, position: Int) {
         holder.bind(favoriteMovie[position])
     }
 
-    class AdapterFavoriteViewHolder(itemFavoriteView: View): RecyclerView.ViewHolder(itemFavoriteView) {
+
+    fun getCurrentMovie(position: Int) = favoriteMovie[position]
+
+    class AdapterFavoriteViewHolder(itemFavoriteView: View, private val clickFavoriteMovie: (favoriteMovie: FavoriteMovie) -> Unit) : RecyclerView.ViewHolder(itemFavoriteView) {
 
         private val txtTitle = itemView.txtMovieTitle
         private val txtDate = itemView.txtMovieDate
@@ -32,7 +36,7 @@ class FavoriteAdapter(val favoriteMovie: List<FavoriteMovie>): RecyclerView.Adap
         private val txtVote = itemView.txtVote
         private val picasso = Picasso.get()
 
-        fun bind(favoriteMovie: FavoriteMovie ) {
+        fun bind(favoriteMovie: FavoriteMovie) {
             txtTitle.text = favoriteMovie.originalTitle
             txtDate.text = favoriteMovie.releaseDate
             txtVote.text = favoriteMovie.voteAverage.toString()
@@ -40,6 +44,9 @@ class FavoriteAdapter(val favoriteMovie: List<FavoriteMovie>): RecyclerView.Adap
             favoriteMovie.posterPath.let {
                 picasso.load("""${BuildConfig.BASE_URL_IMAGE}${favoriteMovie.posterPath}""")
                     .into(posterPath)
+            }
+            itemView.setOnClickListener {
+                clickFavoriteMovie.invoke(favoriteMovie)
             }
         }
     }
