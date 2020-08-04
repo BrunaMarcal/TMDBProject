@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.register.RegisterActivity"/>
-        <activity android:name=".ui.activity.login.LoginActivity" >
+        <activity android:name=".ui.activity.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.activity.profile.PersonActivity" />
+        <activity android:name=".ui.activity.register.RegisterActivity" />
+        <activity android:name=".ui.activity.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,8 +25,7 @@
             android:name=".ui.activity.favoritemovie.FavoriteMovieActivity"
             android:parentActivityName=".ui.activity.home.HomeActivity" />
         <activity android:name=".ui.activity.detail.DetailActivity" />
-        <activity android:name=".ui.activity.home.HomeActivity"/>
-
+        <activity android:name=".ui.activity.home.HomeActivity" />
     </application>
 
 </manifest>

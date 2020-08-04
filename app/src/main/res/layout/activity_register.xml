@@ -14,7 +14,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif-smallcaps"
         android:text="@string/register"
         android:textAlignment="center"
         android:textColor="@color/grey"
@@ -48,6 +47,7 @@
         android:background="@drawable/background_edit_text"
         android:hint="@string/username"
         android:textColor="@color/grey"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -64,13 +64,14 @@
         app:layout_constraintTop_toBottomOf="@+id/edtRegisterName" />
 
     <EditText
-        android:id="@+id/edtEmailRegister"
+        android:id="@+id/edtRegisterEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:background="@drawable/background_edit_text"
         android:hint="@string/email"
         android:textColor="@color/grey"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="@+id/edtRegisterName"
         app:layout_constraintStart_toStartOf="@+id/edtRegisterName"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -84,7 +85,7 @@
         android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/edtRegisterEmail" />
 
     <EditText
         android:id="@+id/edtRegisterPassword"
@@ -94,11 +95,13 @@
         android:background="@drawable/background_edit_text"
         android:hint="@string/password"
         android:textColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="@+id/edtEmailRegister"
-        app:layout_constraintStart_toStartOf="@+id/edtEmailRegister"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="@+id/edtRegisterEmail"
+        app:layout_constraintStart_toStartOf="@+id/edtRegisterEmail"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"

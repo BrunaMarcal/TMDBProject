@@ -39,8 +39,6 @@ Oapp/src/main/java/br/com/brunamarcal/tmdbproject/pageadapter/HomePageAdapter.kt
 Kapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/MovieAdapter.kt,8\9\89515e933713f3b60b24209c753711d124d376d6
 Ö
 Uapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/detail/DetailActivity.kt,2\9\294ce2c9dc752c127405c59c358ca742f9b5aa12
-R
-"app/src/main/res/values/styles.xml,f\7\f79cc2688e29fcbc286fda14ae07b27c9e83690f
 ~
 Napp/src/main/java/br/com/brunamarcal/tmdbproject/data/database/modeldb/User.kt,7\5\75eb8f11b911159514975db721994721d363ddfa
 Å
@@ -61,3 +59,13 @@ napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/favoritemovie/view
 capp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/favoritemovie/FavoriteMovieActivity.kt,0\e\0e40c89c06ba58acc6a6f5c062b675b64074c7c6
 ~
 Napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/FavoriteAdapter.kt,b\e\bec2e6dfa298f788f8e7c185ec1d62da943b8f8c
+é
+^app/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/login/viewmodel/LoginViewModel.kt,b\4\b4292a42627e796bc4f51d8320249298afd70aa3
+É
+Sapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/login/LoginActivity.kt,9\5\95bf97573cbd1a543f61efe37c325e13c08f474f
+â
+Yapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/register/RegisterActivity.kt,c\8\c88b745027c5517d3a7a1212c255bf5bd707ef32
+î
+dapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/register/viewmodel/RegisterViewModel.kt,e\b\eb4c2cf236601a32bcd4231df042fc5404f6463f
+Ü
+Vapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/person/ProfileActivity.kt,d\7\d737a332d0db25b01b5299a7de715650b0bbf7fe

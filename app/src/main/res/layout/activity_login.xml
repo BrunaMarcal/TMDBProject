@@ -53,6 +53,7 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/grey"
         android:hint="@string/email"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
@@ -79,6 +80,7 @@
         android:inputType="textPassword"
         android:hint="@string/password"
         android:textColor="@color/grey"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="@+id/edtEmailLogin"
         app:layout_constraintStart_toStartOf="@+id/edtEmailLogin"
         app:layout_constraintTop_toBottomOf="@+id/txtPasswordLogin" />

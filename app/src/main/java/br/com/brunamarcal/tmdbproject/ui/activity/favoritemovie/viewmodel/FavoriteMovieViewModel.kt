@@ -2,7 +2,6 @@ package br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import br.com.brunamarcal.tmdbproject.core.State
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovie
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -11,7 +10,6 @@ import kotlinx.coroutines.launch
 class FavoriteMovieViewModel(application: Application, private val repository: Repository, private val dispatcher: CoroutineDispatcher) : AndroidViewModel(application) {
 
     fun getFavoriteMovie(userEmail: String): LiveData<List<FavoriteMovie>> = repository.getFavoriteMovie(userEmail)
-
 
     fun insertFavoriteMovie(favoriteMovie: FavoriteMovie) = viewModelScope.launch {
         repository.insertFavoriteMovie(favoriteMovie)

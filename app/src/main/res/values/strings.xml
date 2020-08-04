@@ -9,5 +9,9 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="email">E-mail</string>
+    <string name="profile">Profile</string>
+    <string name="username_profile">Username:</string>
+    <string name="e_mail_profile">E-mail:</string>
+    <string name="password_profile">Password:</string>
 
 </resources>
