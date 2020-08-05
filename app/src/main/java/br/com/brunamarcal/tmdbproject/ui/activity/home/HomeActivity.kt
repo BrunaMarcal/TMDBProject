@@ -8,6 +8,7 @@ import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import br.com.brunamarcal.tmdbproject.pageadapter.HomePageAdapter
 import br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.FavoriteMovieActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.home.viewmodel.HomeViewModel
+import br.com.brunamarcal.tmdbproject.ui.activity.profile.ProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_base_home.*
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +29,10 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this@HomeActivity, FavoriteMovieActivity::class.java))
                 return@OnNavigationItemSelectedListener true
             }
-//            R.id.personFragment -> {}
+            R.id.personFragment -> {
+                startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
+                return@OnNavigationItemSelectedListener true
+            }
             else -> false
         }
     }

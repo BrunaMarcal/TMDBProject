@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.profile.ProfileActivity"></activity>
-        <activity android:name=".ui.activity.profile.PersonActivity" />
+        <activity android:name=".ui.activity.profile.ProfileActivity"
+            android:parentActivityName=".ui.activity.home.HomeActivity" />
         <activity android:name=".ui.activity.register.RegisterActivity" />
         <activity android:name=".ui.activity.login.LoginActivity">
             <intent-filter>

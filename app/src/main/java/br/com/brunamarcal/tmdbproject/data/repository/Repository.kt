@@ -28,9 +28,8 @@ class Repository(context: Context) {
 
     fun getUser (email: String, password: String): LiveData<User> = userDao.selectedUser(email, password)
 
-    fun getUserByEmail(email: String){
-        userDao.selectedEmail(email)
-    }
+    fun getUserByEmail(email: String): LiveData <User> = userDao.selectedEmail(email)
+
 
     suspend fun insertFavoriteMovie(favoriteMovie: FavoriteMovie){
         favoriteDao.insertMovie(favoriteMovie)
