@@ -17,8 +17,10 @@ import br.com.brunamarcal.tmdbproject.core.Status
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovie
 import br.com.brunamarcal.tmdbproject.data.model.MovieResult
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
+import br.com.brunamarcal.tmdbproject.data.util.SharedPreference
 import br.com.brunamarcal.tmdbproject.ui.activity.detail.DetailActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.favoritemovie.viewmodel.FavoriteMovieViewModel
+import br.com.brunamarcal.tmdbproject.ui.activity.login.LoginActivity
 import br.com.brunamarcal.tmdbproject.ui.adapter.FavoriteAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_favorite_movie.*
@@ -29,6 +31,7 @@ class FavoriteMovieActivity : AppCompatActivity() {
 
     lateinit var favoriteAdapter: FavoriteAdapter
     lateinit var viewModel: FavoriteMovieViewModel
+    lateinit var userEmail: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +47,12 @@ class FavoriteMovieActivity : AppCompatActivity() {
         val repository = Repository(this)
         viewModel = FavoriteMovieViewModel.FavoriteMovieViewModelProviderFactory(application, repository, Dispatchers.IO).create(FavoriteMovieViewModel::class.java)
 
-        viewModel.getFavoriteMovie("bruna@zup.com").observe(this, Observer { favoriteMovie ->
+        val sharedPreference = SharedPreference(this)
+        sharedPreference.getData(LoginActivity.USER)?.let {
+            userEmail = it
+        }
+
+        viewModel.getFavoriteMovie(userEmail).observe(this, Observer { favoriteMovie ->
             favoriteMovie?.let {listFavoriteMovie ->
                 setAdapter(listFavoriteMovie)
             }

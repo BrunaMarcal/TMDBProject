@@ -28,6 +28,10 @@ class Repository(context: Context) {
 
     fun getUser (email: String, password: String): LiveData<User> = userDao.selectedUser(email, password)
 
+    suspend fun deleteUser(user:User){
+        userDao.deleteUser(user)
+    }
+
     fun getUserByEmail(email: String): LiveData <User> = userDao.selectedEmail(email)
 
 

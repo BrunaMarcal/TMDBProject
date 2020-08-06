@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
+import br.com.brunamarcal.tmdbproject.data.util.SharedPreference
 import br.com.brunamarcal.tmdbproject.ui.activity.home.HomeActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.login.viewmodel.LoginViewModel
 import br.com.brunamarcal.tmdbproject.ui.activity.register.RegisterActivity
@@ -24,16 +25,19 @@ class LoginActivity : AppCompatActivity() {
         val repository = Repository(this)
         viewModel = LoginViewModel.LoginViewModelProviderFactory(application, repository, Dispatchers.IO).create(LoginViewModel::class.java)
 
-        login()
+        val sharedPreference = SharedPreference(this)
+
+        login(sharedPreference)
 
         txtRegister.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
             finish()
+
         }
 
     }
 
-    fun login(){
+    fun login(sharedPreference: SharedPreference){
         btnAccess.setOnClickListener {
             when(viewModel.isValid(edtEmailLogin, edtPasswordLogin)){
                 0 -> Toast.makeText(this@LoginActivity, "Fill in all fields", Toast.LENGTH_SHORT).show()
@@ -42,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
                 else -> {
                     viewModel.getUser(edtEmailLogin.text.toString(), edtPasswordLogin.text.toString()).observe(this, Observer {
                         it?.let {
+                            sharedPreference.saveData(USER, it.email)
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                             finish()
                         } ?: kotlin.run {
@@ -51,6 +56,10 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        const val USER = "USER"
     }
 
 

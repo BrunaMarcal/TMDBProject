@@ -13,5 +13,6 @@
     <string name="username_profile">Username:</string>
     <string name="e_mail_profile">E-mail:</string>
     <string name="password_profile">Password:</string>
+    <string name="logout">Logout</string>
 
 </resources>

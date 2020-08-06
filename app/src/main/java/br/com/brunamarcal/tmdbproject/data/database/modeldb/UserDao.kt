@@ -1,10 +1,7 @@
 package br.com.brunamarcal.tmdbproject.data.database.modeldb
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface UserDao {
@@ -17,4 +14,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE email = :email")
     fun selectedEmail(email: String): LiveData<User>
+
+    @Delete
+    suspend fun deleteUser(user: User)
 }

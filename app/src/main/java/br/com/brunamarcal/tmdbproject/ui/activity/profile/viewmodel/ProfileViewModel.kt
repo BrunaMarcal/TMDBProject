@@ -1,20 +1,19 @@
 package br.com.brunamarcal.tmdbproject.ui.activity.profile.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.User
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.launch
 
 class ProfileViewModel(application: Application, private val repository: Repository, private val dispatcher: CoroutineDispatcher): AndroidViewModel(application) {
 
     fun getUser(email: String): LiveData<User> = repository.getUserByEmail(email)
 
-
-
+    fun deleteUser(user: User) = viewModelScope.launch{
+        repository.deleteUser(user)
+    }
 
 
     class ProfileViewModelProviderFactory(private val application: Application, private val repository: Repository, private val dispatcher: CoroutineDispatcher) : ViewModelProvider.Factory {
