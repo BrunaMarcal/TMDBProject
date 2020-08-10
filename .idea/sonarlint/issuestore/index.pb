@@ -67,5 +67,7 @@ Sapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/login/LoginActivit
 Yapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/register/RegisterActivity.kt,c\8\c88b745027c5517d3a7a1212c255bf5bd707ef32
 ”
 dapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/register/viewmodel/RegisterViewModel.kt,e\b\eb4c2cf236601a32bcd4231df042fc5404f6463f
-†
-Vapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/person/ProfileActivity.kt,d\7\d737a332d0db25b01b5299a7de715650b0bbf7fe
+’
+bapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/profile/viewmodel/ProfileViewModel.kt,4\c\4c69adede5addc2333b6c941c6fedc95ba50b3de
+‡
+Wapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/profile/ProfileActivity.kt,3\6\360be6069d325e866729f1fbe2d091dea54c9e67

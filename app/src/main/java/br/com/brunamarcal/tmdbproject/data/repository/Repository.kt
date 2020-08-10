@@ -19,7 +19,7 @@ class Repository(context: Context) {
     }
 
     suspend fun insertUser(user: User){
-        userDao.insertUser(user)
+        userDao.upsertUser(user)
     }
 
 //    fun getUser(email: String, password: String): LiveData<User>{
