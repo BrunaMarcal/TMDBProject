@@ -31,7 +31,7 @@ class FavoriteMovieActivity : AppCompatActivity() {
 
     lateinit var favoriteAdapter: FavoriteAdapter
     lateinit var viewModel: FavoriteMovieViewModel
-    lateinit var userEmail: String
+    private var userId: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +49,10 @@ class FavoriteMovieActivity : AppCompatActivity() {
 
         val sharedPreference = SharedPreference(this)
         sharedPreference.getData(LoginActivity.USER)?.let {
-            userEmail = it
+            userId = it
         }
 
-        viewModel.getFavoriteMovie(userEmail).observe(this, Observer { favoriteMovie ->
+        viewModel.getFavoriteMovie(userId).observe(this, Observer { favoriteMovie ->
             favoriteMovie?.let {listFavoriteMovie ->
                 setAdapter(listFavoriteMovie)
             }

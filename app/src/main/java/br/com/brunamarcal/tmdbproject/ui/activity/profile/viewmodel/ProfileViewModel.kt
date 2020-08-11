@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class ProfileViewModel(application: Application, private val repository: Repository, private val dispatcher: CoroutineDispatcher): AndroidViewModel(application) {
 
-    fun getUser(email: String): LiveData<User> = repository.getUserByEmail(email)
+    fun getUser(id: Long): LiveData<User> = repository.getUserById(id)
 
     fun deleteUser(user: User) = viewModelScope.launch{
         repository.deleteUser(user)

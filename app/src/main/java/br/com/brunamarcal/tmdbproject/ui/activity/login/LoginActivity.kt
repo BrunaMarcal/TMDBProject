@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
                 else -> {
                     viewModel.getUser(edtEmailLogin.text.toString(), edtPasswordLogin.text.toString()).observe(this, Observer {
                         it?.let {
-                            sharedPreference.saveData(USER, it.email)
+                            sharedPreference.saveData(USER, it.id)
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                             finish()
                         } ?: kotlin.run {

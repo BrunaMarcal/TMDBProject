@@ -71,3 +71,7 @@ dapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/register/viewmodel
 bapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/profile/viewmodel/ProfileViewModel.kt,4\c\4c69adede5addc2333b6c941c6fedc95ba50b3de
 ‡
 Wapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/profile/ProfileActivity.kt,3\6\360be6069d325e866729f1fbe2d091dea54c9e67
+e
+5app/src/main/res/drawable/background_bottom_sheet.xml,a\9\a9b805a0d266175059df806117f57f4caa433d8a
+Y
+)app/src/main/res/layout/custom_dialog.xml,a\8\a83fe94e4f83409cd3dd95870855cbc370cddb6c

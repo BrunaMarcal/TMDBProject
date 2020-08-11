@@ -17,7 +17,7 @@ import kotlinx.coroutines.Dispatchers
 
 class DetailActivity : AppCompatActivity() {
      lateinit var viewModel: FavoriteMovieViewModel
-     lateinit var getUserMovieFavorite: String
+     private var getUserMovieFavorite: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

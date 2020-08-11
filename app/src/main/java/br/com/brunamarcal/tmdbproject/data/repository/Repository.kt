@@ -18,36 +18,42 @@ class Repository(context: Context) {
         TmdbDatabase.getDb(context).userDao()
     }
 
-    suspend fun insertUser(user: User){
-        userDao.upsertUser(user)
+    suspend fun insertUser(user: User) {
+        userDao.insertUser(user)
     }
 
 //    fun getUser(email: String, password: String): LiveData<User>{
 //       return userDao.selectedUser(email, password)
 //    }
 
-    fun getUser (email: String, password: String): LiveData<User> = userDao.selectedUser(email, password)
+    fun getUser(email: String, password: String): LiveData<User> =
+        userDao.selectedUser(email, password)
 
-    suspend fun deleteUser(user:User){
+    suspend fun deleteUser(user: User) {
         userDao.deleteUser(user)
     }
 
-    fun getUserByEmail(email: String): LiveData <User> = userDao.selectedEmail(email)
+    suspend fun updateUser(id: Long, name: String, email: String, password: String) {
+        userDao.updateUser(id, name, email, password)
+    }
+
+    fun getUserById(id: Long): LiveData<User> = userDao.selectedId(id)
 
 
-    suspend fun insertFavoriteMovie(favoriteMovie: FavoriteMovie){
+    suspend fun insertFavoriteMovie(favoriteMovie: FavoriteMovie) {
         favoriteDao.insertMovie(favoriteMovie)
     }
 
-    fun getFavoriteMovie(userEmail: String): LiveData<List<FavoriteMovie>> = favoriteDao.selectFavoriteMovie(userEmail)
+    fun getFavoriteMovie(userId: Long): LiveData<List<FavoriteMovie>> =
+        favoriteDao.selectFavoriteMovie(userId)
 
 
-    suspend fun deleteFavoriteMovie(favoriteMovie: FavoriteMovie){
+    suspend fun deleteFavoriteMovie(favoriteMovie: FavoriteMovie) {
         favoriteDao.deleteFavoriteMovie(favoriteMovie)
     }
-
 
 
     suspend fun getMovies(apiKey: String, language: String, includeAdult: Boolean) =
         ApiService.service.getMovie(apiKey, language, includeAdult)
 }
+

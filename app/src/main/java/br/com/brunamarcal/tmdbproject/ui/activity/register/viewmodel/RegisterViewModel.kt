@@ -19,6 +19,10 @@ class RegisterViewModel(application: Application, private val repository: Reposi
         repository.insertUser(user)
     }
 
+    fun updateUser(id: Long, name: String, email: String, password: String) = viewModelScope.launch {
+        repository.updateUser(id, name, email, password)
+    }
+
     fun registerIsValid(edtRegisterName: EditText, edtRegisterEmail: EditText, edtRegisterPassword: EditText): Int {
         return if (TextUtils.isEmpty(edtRegisterName.text.toString())) {
             return 0

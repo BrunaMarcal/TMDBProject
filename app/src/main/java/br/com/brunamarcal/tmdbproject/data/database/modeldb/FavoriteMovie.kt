@@ -13,8 +13,8 @@ data class FavoriteMovie(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int,
-    @ColumnInfo(name = "user_email")
-    val userEmail: String,
+    @ColumnInfo(name = "user_id")
+    val userId: Long,
     @ColumnInfo(name = "poster_path")
     val posterPath: String,
     @ColumnInfo(name = "overview")

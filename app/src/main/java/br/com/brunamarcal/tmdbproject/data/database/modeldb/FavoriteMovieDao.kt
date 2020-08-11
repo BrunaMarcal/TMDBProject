@@ -9,8 +9,8 @@ interface FavoriteMovieDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMovie(favoriteMovie: FavoriteMovie)
 
-    @Query("SELECT * FROM favorite_movie WHERE user_email = :userEmail")
-    fun selectFavoriteMovie (userEmail: String): LiveData<List<FavoriteMovie>>
+    @Query("SELECT * FROM favorite_movie WHERE user_id = :userId")
+    fun selectFavoriteMovie (userId: Long): LiveData<List<FavoriteMovie>>
 
     @Delete
     suspend fun deleteFavoriteMovie(favoriteMovie: FavoriteMovie)

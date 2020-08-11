@@ -1,16 +1,13 @@
 package br.com.brunamarcal.tmdbproject.data.database.modeldb
 
-import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
 
 @Entity(tableName = "user")
-@Parcelize
 data class User (
 
-    @PrimaryKey
     @ColumnInfo(name = "email")
     val email: String,
     @ColumnInfo(name = "name")
@@ -18,4 +15,8 @@ data class User (
     @ColumnInfo(name = "password")
     val password: String
 
-): Parcelable
+): Serializable {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long = 0
+}

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class FavoriteMovieViewModel(application: Application, private val repository: Repository, private val dispatcher: CoroutineDispatcher) : AndroidViewModel(application) {
 
-    fun getFavoriteMovie(userEmail: String): LiveData<List<FavoriteMovie>> = repository.getFavoriteMovie(userEmail)
+    fun getFavoriteMovie(userId: Long): LiveData<List<FavoriteMovie>> = repository.getFavoriteMovie(userId)
 
     fun insertFavoriteMovie(favoriteMovie: FavoriteMovie) = viewModelScope.launch {
         repository.insertFavoriteMovie(favoriteMovie)

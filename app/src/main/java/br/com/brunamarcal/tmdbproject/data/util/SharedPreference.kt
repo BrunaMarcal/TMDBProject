@@ -7,11 +7,11 @@ class SharedPreference(context: Context) {
     private val TMDB_SHARED = "TMDB_SHARED"
     private val sharedPref: SharedPreferences = context.getSharedPreferences(TMDB_SHARED, Context.MODE_PRIVATE)
 
-    fun saveData(key: String, value: String){
+    fun saveData(key: String, value: Long){
         val editor: SharedPreferences.Editor = sharedPref.edit()
-        editor.putString(key, value)
+        editor.putLong(key, value)
         editor.apply()
     }
 
-    fun getData(key: String): String? = sharedPref.getString(key,"")
+    fun getData(key: String): Long? = sharedPref.getLong(key,0)
 }
