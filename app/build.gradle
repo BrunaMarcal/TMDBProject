@@ -90,4 +90,7 @@ dependencies {
     // Navigation Components
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    //Circular ImageView
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
 }

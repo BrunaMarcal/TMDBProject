@@ -14,6 +14,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.User
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
@@ -21,15 +24,19 @@ import br.com.brunamarcal.tmdbproject.data.util.SharedPreference
 import br.com.brunamarcal.tmdbproject.ui.activity.login.LoginActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.profile.viewmodel.ProfileViewModel
 import br.com.brunamarcal.tmdbproject.ui.activity.register.RegisterActivity
+import br.com.brunamarcal.tmdbproject.ui.adapter.ProfileAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.activity_favorite_movie.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.bottom_sheet.*
+import kotlinx.android.synthetic.main.custom_dialog_profile.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.coroutines.Dispatchers
 import java.io.Serializable
 
 class ProfileActivity : AppCompatActivity() {
+    lateinit var profileAdapter: ProfileAdapter
     lateinit var alert: AlertDialog
     lateinit var viewModel: ProfileViewModel
     private var getUserId: Long = 0
@@ -50,11 +57,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val repository = Repository(this)
-        viewModel = ProfileViewModel.ProfileViewModelProviderFactory(
-            application,
-            repository,
-            Dispatchers.IO
-        ).create(ProfileViewModel::class.java)
+        viewModel = ProfileViewModel.ProfileViewModelProviderFactory(application, repository, Dispatchers.IO).create(ProfileViewModel::class.java)
 
         val sharedPreference = SharedPreference(this)
         sharedPreference.getData(LoginActivity.USER)?.let {
@@ -118,5 +121,30 @@ class ProfileActivity : AppCompatActivity() {
         alert.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         alert.show()
     }
-}
 
+    fun imageList() = listOf(
+        R.drawable.anna, R.drawable.astride,
+        R.drawable.banguela, R.drawable.bart,
+        R.drawable.elza, R.drawable.homer,
+        R.drawable.minion, R.drawable.minion_girl,
+        R.drawable.comic_book_guy, R.drawable.olaf,
+        R.drawable.lisa, R.drawable.soluco
+    )
+
+    private fun setupAlertDialogProfile() {
+        val builder = AlertDialog.Builder(this)
+        val view: View = layoutInflater.inflate(R.layout.custom_dialog_profile, null)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerProfile)
+        profileAdapter = ProfileAdapter(imageList())
+
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+            setHasFixedSize(true)
+            adapter = profileAdapter
+        }
+
+        builder.setView(view)
+        alert = builder.create()
+        alert.show()
+    }
+}
