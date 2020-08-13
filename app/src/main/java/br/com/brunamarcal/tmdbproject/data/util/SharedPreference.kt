@@ -14,4 +14,12 @@ class SharedPreference(context: Context) {
     }
 
     fun getData(key: String): Long? = sharedPref.getLong(key,0)
+
+    fun savedImage(key: String, value: Int){
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putInt(key,value)
+        editor.apply()
+    }
+
+    fun getSavedImage(key: String): Int? = sharedPref.getInt(key, 0)
 }

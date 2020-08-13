@@ -1,20 +1,15 @@
 package br.com.brunamarcal.tmdbproject.ui.activity.profile
 
 import android.app.AlertDialog
-import android.content.Entity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Parcelable
-import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brunamarcal.tmdbproject.R
@@ -25,15 +20,11 @@ import br.com.brunamarcal.tmdbproject.ui.activity.login.LoginActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.profile.viewmodel.ProfileViewModel
 import br.com.brunamarcal.tmdbproject.ui.activity.register.RegisterActivity
 import br.com.brunamarcal.tmdbproject.ui.adapter.ProfileAdapter
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.activity_favorite_movie.*
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.bottom_sheet.*
-import kotlinx.android.synthetic.main.custom_dialog_profile.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.coroutines.Dispatchers
-import java.io.Serializable
 
 class ProfileActivity : AppCompatActivity() {
     lateinit var profileAdapter: ProfileAdapter
@@ -41,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var viewModel: ProfileViewModel
     private var getUserId: Long = 0
     lateinit var mUser: User
+    lateinit var sharedPreference: SharedPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,18 +43,22 @@ class ProfileActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
 
-        logout.setOnClickListener {
-            startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
-            finish()
-        }
+        logout()
 
         val repository = Repository(this)
         viewModel = ProfileViewModel.ProfileViewModelProviderFactory(application, repository, Dispatchers.IO).create(ProfileViewModel::class.java)
 
-        val sharedPreference = SharedPreference(this)
+        sharedPreference = SharedPreference(this)
         sharedPreference.getData(LoginActivity.USER)?.let {
             getUserId = it
         }
+        sharedPreference.getSavedImage(getUserId.toString())?.let {
+            if (it != 0){
+                Picasso.get().load(it).into(imgProfile)
+            }
+        }
+
+        changeImage(sharedPreference)
 
         viewModel.getUser(getUserId).observe(this, Observer {
             it?.let { user ->
@@ -75,6 +71,13 @@ class ProfileActivity : AppCompatActivity() {
 
         imgConfigUser.setOnClickListener {
             setupBottomSheet()
+        }
+    }
+
+    private fun logout() {
+        logout.setOnClickListener {
+            startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+            finish()
         }
     }
 
@@ -131,11 +134,15 @@ class ProfileActivity : AppCompatActivity() {
         R.drawable.lisa, R.drawable.soluco
     )
 
-    private fun setupAlertDialogProfile() {
+    private fun setupAlertDialogProfile(sharedPreference: SharedPreference) {
         val builder = AlertDialog.Builder(this)
         val view: View = layoutInflater.inflate(R.layout.custom_dialog_profile, null)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerProfile)
-        profileAdapter = ProfileAdapter(imageList())
+        profileAdapter = ProfileAdapter(imageList()){
+            Picasso.get().load(it).into(imgProfile)
+            sharedPreference.savedImage(getUserId.toString(), it)
+            alert.dismiss()
+        }
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
@@ -146,5 +153,12 @@ class ProfileActivity : AppCompatActivity() {
         builder.setView(view)
         alert = builder.create()
         alert.show()
+    }
+
+    private fun changeImage(sharedPreference: SharedPreference) {
+        imgEdit.setOnClickListener {
+            setupAlertDialogProfile(sharedPreference)
+        }
+
     }
 }
