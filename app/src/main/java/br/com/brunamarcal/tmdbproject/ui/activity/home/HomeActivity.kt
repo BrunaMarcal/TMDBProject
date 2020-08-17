@@ -2,7 +2,9 @@ package br.com.brunamarcal.tmdbproject.ui.activity.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import br.com.brunamarcal.tmdbproject.ClickListener
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
 import br.com.brunamarcal.tmdbproject.pageadapter.HomePageAdapter
@@ -13,18 +15,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_base_home.*
 import kotlinx.coroutines.Dispatchers
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), ClickListener {
 
     private val fragmentAdapter =
         HomePageAdapter(
-            supportFragmentManager
-        )
+            supportFragmentManager)
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId){
-//            R.id.homeFragment -> {
-//                val fragment = HomeFragment()
-//                    supportFragmentManager.beginTransaction().replace(R.id.viewPagerMain, fragment.javaClass.simpleName).commit()
-//            }
             R.id.favoriteFragment -> {
                 startActivity(Intent(this@HomeActivity, FavoriteMovieActivity::class.java))
                 return@OnNavigationItemSelectedListener true
@@ -45,11 +43,17 @@ class HomeActivity : AppCompatActivity() {
         val repository = Repository(this)
         viewModel = HomeViewModel.HomeViewModelProviderFactory(repository, Dispatchers.IO).create(HomeViewModel::class.java)
 
+        ProfileActivity.setFinishClick(this)
+
         viewPagerMain.adapter = fragmentAdapter
         tabsMain.setupWithViewPager(viewPagerMain)
 
         val bottomNavigation: BottomNavigationView = bottomNavigation
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
+    }
+
+    override fun click() {
+        finish()
     }
 }

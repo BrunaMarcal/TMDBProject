@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.brunamarcal.tmdbproject.ClickListener
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.User
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
@@ -34,6 +36,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var mUser: User
     lateinit var sharedPreference: SharedPreference
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -46,14 +49,18 @@ class ProfileActivity : AppCompatActivity() {
         logout()
 
         val repository = Repository(this)
-        viewModel = ProfileViewModel.ProfileViewModelProviderFactory(application, repository, Dispatchers.IO).create(ProfileViewModel::class.java)
+        viewModel = ProfileViewModel.ProfileViewModelProviderFactory(
+            application,
+            repository,
+            Dispatchers.IO
+        ).create(ProfileViewModel::class.java)
 
         sharedPreference = SharedPreference(this)
         sharedPreference.getData(LoginActivity.USER)?.let {
             getUserId = it
         }
         sharedPreference.getSavedImage(getUserId.toString())?.let {
-            if (it != 0){
+            if (it != 0) {
                 Picasso.get().load(it).into(imgProfile)
             }
         }
@@ -77,6 +84,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun logout() {
         logout.setOnClickListener {
             startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+            clickF?.click()
             finish()
         }
     }
@@ -89,7 +97,6 @@ class ProfileActivity : AppCompatActivity() {
         bottomSheet.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         bottomSheet.setContentView(view)
         bottomSheet.show()
-
 
         editProfile.setOnClickListener {
             val intent = Intent(this@ProfileActivity, RegisterActivity::class.java)
@@ -114,6 +121,7 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
             finish()
         }
+
         btnNo.setOnClickListener {
             alert.dismiss()
             bottomSheet.dismiss()
@@ -138,7 +146,7 @@ class ProfileActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         val view: View = layoutInflater.inflate(R.layout.custom_dialog_profile, null)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerProfile)
-        profileAdapter = ProfileAdapter(imageList()){
+        profileAdapter = ProfileAdapter(imageList()) {
             Picasso.get().load(it).into(imgProfile)
             sharedPreference.savedImage(getUserId.toString(), it)
             alert.dismiss()
@@ -159,6 +167,13 @@ class ProfileActivity : AppCompatActivity() {
         imgEdit.setOnClickListener {
             setupAlertDialogProfile(sharedPreference)
         }
+    }
 
+    companion object{
+        private var clickF: ClickListener? = null
+        fun setFinishClick(listener: ClickListener){
+            clickF = listener
+        }
     }
 }
+

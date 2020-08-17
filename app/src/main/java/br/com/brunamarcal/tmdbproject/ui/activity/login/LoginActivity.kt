@@ -1,9 +1,9 @@
 package br.com.brunamarcal.tmdbproject.ui.activity.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import br.com.brunamarcal.tmdbproject.R
 import br.com.brunamarcal.tmdbproject.data.repository.Repository
@@ -32,9 +32,7 @@ class LoginActivity : AppCompatActivity() {
         txtRegister.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
             finish()
-
         }
-
     }
 
     fun login(sharedPreference: SharedPreference){
@@ -61,6 +59,4 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         const val USER = "USER"
     }
-
-
 }

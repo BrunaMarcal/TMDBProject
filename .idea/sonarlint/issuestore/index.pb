@@ -75,3 +75,7 @@ e
 5app/src/main/res/drawable/background_bottom_sheet.xml,a\9\a9b805a0d266175059df806117f57f4caa433d8a
 Y
 )app/src/main/res/layout/custom_dialog.xml,a\8\a83fe94e4f83409cd3dd95870855cbc370cddb6c
+V
+&app/src/main/res/layout/item_movie.xml,9\9\992384958349a2690fe10ef07ce3f2d5a186c682
+}
+Mapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/ProfileAdapter.kt,5\4\54840379b60021aeb51447d3b353b52d93a6adf3
