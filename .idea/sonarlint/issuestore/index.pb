@@ -25,12 +25,6 @@ Japp/src/main/java/br/com/brunamarcal/tmdbproject/data/model/MovieResult.kt,8\9
 Napp/src/main/java/br/com/brunamarcal/tmdbproject/data/repository/Repository.kt,3\a\3aa5b8362e804dc352edcb61cf53df7646403eb4
 x
 Happ/src/main/java/br/com/brunamarcal/tmdbproject/data/network/Service.kt,b\2\b2637198676a7309d37f87d9a76718d2bb8ebd4d
-~
-Napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/PersonFragment.kt,4\a\4a146a64e1c29f8ba28cd9a506edf77d82e1d9e7
-Ä
-Papp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/FavoriteFragment.kt,a\d\ad7450eb745fca8c9b668b18426625971325296d
-|
-Lapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/HomeFragment.kt,c\d\cd70041db755b06f33f12217200894278b9e6d93
 Å
 Qapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/activity/home/HomeActivity.kt,7\c\7cc585cca3300baa66f0857962cd68a912cbfda7
 
@@ -79,3 +73,13 @@ V
 &app/src/main/res/layout/item_movie.xml,9\9\992384958349a2690fe10ef07ce3f2d5a186c682
 }
 Mapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/ProfileAdapter.kt,5\4\54840379b60021aeb51447d3b353b52d93a6adf3
+q
+Aapp/src/main/java/br/com/brunamarcal/tmdbproject/ClickListener.kt,b\1\b1ea1f358834cc7e3a1d9572775dbdb54dd4c281
+~
+Napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/ComedyFragment.kt,4\4\44d5b12813b6b864b9a1c6c1943e36653a7591e8
+~
+Napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/HorrorFragment.kt,9\7\973df617681bcd69c88a756e07ada4e79e5ece06
+{
+Kapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/PopFragment.kt,d\d\ddc8706609db10af6c39dc324585c8c1c9bd59c8
+~
+Napp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/ActionFragment.kt,8\2\826dc08a098ea288414735e1fef5a191ed776d9d

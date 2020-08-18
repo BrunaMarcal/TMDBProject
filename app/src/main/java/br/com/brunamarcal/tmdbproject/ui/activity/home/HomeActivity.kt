@@ -17,9 +17,7 @@ import kotlinx.coroutines.Dispatchers
 
 class HomeActivity : AppCompatActivity(), ClickListener {
 
-    private val fragmentAdapter =
-        HomePageAdapter(
-            supportFragmentManager)
+    private val fragmentAdapter = HomePageAdapter(supportFragmentManager)
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId){

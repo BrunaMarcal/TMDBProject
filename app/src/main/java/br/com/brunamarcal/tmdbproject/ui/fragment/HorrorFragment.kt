@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import br.com.brunamarcal.tmdbproject.R
 
-class PersonFragment: Fragment (R.layout.fragment_person){
+class HorrorFragment: Fragment(R.layout.fragment_horror) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }

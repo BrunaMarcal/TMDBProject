@@ -16,9 +16,9 @@ import br.com.brunamarcal.tmdbproject.ui.activity.detail.DetailActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.home.HomeActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.home.viewmodel.HomeViewModel
 import br.com.brunamarcal.tmdbproject.ui.adapter.MovieAdapter
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_pop.*
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class PopFragment : Fragment(R.layout.fragment_pop) {
     lateinit var viewModel: HomeViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

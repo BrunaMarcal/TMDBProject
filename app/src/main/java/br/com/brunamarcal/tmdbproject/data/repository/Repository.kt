@@ -21,18 +21,12 @@ class Repository(context: Context) {
     suspend fun insertUser(user: User) {
         userDao.insertUser(user)
     }
-
-//    fun getUser(email: String, password: String): LiveData<User>{
-//       return userDao.selectedUser(email, password)
-//    }
-
     fun getUser(email: String, password: String): LiveData<User> =
         userDao.selectedUser(email, password)
 
     suspend fun deleteUser(user: User) {
         userDao.deleteUser(user)
     }
-
     suspend fun updateUser(id: Long, name: String, email: String, password: String) {
         userDao.updateUser(id, name, email, password)
     }
@@ -47,13 +41,16 @@ class Repository(context: Context) {
     fun getFavoriteMovie(userId: Long): LiveData<List<FavoriteMovie>> =
         favoriteDao.selectFavoriteMovie(userId)
 
-
     suspend fun deleteFavoriteMovie(favoriteMovie: FavoriteMovie) {
         favoriteDao.deleteFavoriteMovie(favoriteMovie)
     }
 
-
     suspend fun getMovies(apiKey: String, language: String, includeAdult: Boolean) =
         ApiService.service.getMovie(apiKey, language, includeAdult)
+
+    suspend fun getMovieGenres(apiKey: String, withGenres: Int, language: String) =
+        ApiService.service.getMovieGenre(apiKey, withGenres, language)
 }
+
+
 

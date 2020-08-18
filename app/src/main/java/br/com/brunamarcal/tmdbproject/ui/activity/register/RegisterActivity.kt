@@ -13,7 +13,7 @@ import br.com.brunamarcal.tmdbproject.ui.activity.login.LoginActivity
 import br.com.brunamarcal.tmdbproject.ui.activity.register.viewmodel.RegisterViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.fragment_person.*
+import kotlinx.android.synthetic.main.fragment_comedy.*
 import kotlinx.coroutines.Dispatchers
 import java.io.Serializable
 import java.util.Observer
