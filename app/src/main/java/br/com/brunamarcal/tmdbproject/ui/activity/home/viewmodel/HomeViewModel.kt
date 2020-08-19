@@ -25,7 +25,8 @@ class HomeViewModel(private val repository: Repository, private val ioDispatcher
       movieResponse.postValue(handleMovieResponse(response))
 
   }
-   private fun handleMovieResponse(response: Response<MovieResponse>): State<MovieResponse>{
+
+    private fun handleMovieResponse(response: Response<MovieResponse>): State<MovieResponse>{
         if (response.isSuccessful){
             movieResponse.value = State.loading(false)
             response.body()?.let { result ->

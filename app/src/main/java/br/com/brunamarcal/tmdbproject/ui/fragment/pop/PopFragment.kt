@@ -1,4 +1,4 @@
-package br.com.brunamarcal.tmdbproject.ui.fragment
+package br.com.brunamarcal.tmdbproject.ui.fragment.pop
 
 import android.content.Intent
 import android.os.Bundle

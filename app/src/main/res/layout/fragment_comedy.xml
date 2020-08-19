@@ -3,74 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
-<!--    <TextView-->
-<!--        android:id="@+id/txtUsernameRegister"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="236dp"-->
-<!--        android:text="Username"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerComedy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/txtPasswordRegister"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:text="Password"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/edtUsernameRegister" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/edtUsernameRegister"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="textPersonName"-->
-<!--        android:text="update Username"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/txtUsernameRegister" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/edtPasswordRegister"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="6dp"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="textPersonName"-->
-<!--        android:text="Update Password"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/txtPasswordRegister" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btnUpdate"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:text="Update"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/edtPasswordRegister" />-->
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fabDelete"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:src="@drawable/ic_delete"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+    <ProgressBar
+        android:id="@+id/progressBarComedy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerComedy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerComedy"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

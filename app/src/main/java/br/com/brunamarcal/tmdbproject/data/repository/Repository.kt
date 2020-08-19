@@ -7,6 +7,7 @@ import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovie
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.FavoriteMovieDao
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.User
 import br.com.brunamarcal.tmdbproject.data.database.modeldb.UserDao
+import br.com.brunamarcal.tmdbproject.data.model.MovieResponse
 import br.com.brunamarcal.tmdbproject.data.network.ApiService
 
 class Repository(context: Context) {
@@ -48,7 +49,7 @@ class Repository(context: Context) {
     suspend fun getMovies(apiKey: String, language: String, includeAdult: Boolean) =
         ApiService.service.getMovie(apiKey, language, includeAdult)
 
-    suspend fun getMovieGenres(apiKey: String, withGenres: Int, language: String) =
+    suspend fun getMovieGenres(apiKey: String, withGenres: Int, language: String): MovieResponse =
         ApiService.service.getMovieGenre(apiKey, withGenres, language)
 }
 

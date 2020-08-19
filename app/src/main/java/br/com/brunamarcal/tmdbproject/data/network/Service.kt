@@ -15,7 +15,7 @@ interface Service {
     @GET("discover/movie")
     suspend fun getMovieGenre(@Query("api_key") apiKey: String,
                               @Query("with_genres") withGenres: Int,
-                              @Query("language") language: String)
+                              @Query("language") language: String): MovieResponse
 }
 
 //discover/movie?api_key=079a8da33b1d25243977c4834788bcd1&language=pt-BR&include_adult=false

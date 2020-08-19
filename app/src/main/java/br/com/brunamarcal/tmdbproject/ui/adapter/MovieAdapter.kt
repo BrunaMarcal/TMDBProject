@@ -14,8 +14,7 @@ class MovieAdapter(val movieList: List<MovieResult>, val clickMovie: ((movie: Mo
     RecyclerView.Adapter<MovieAdapter.AdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
         return AdapterViewHolder(itemView, clickMovie)
     }
 
