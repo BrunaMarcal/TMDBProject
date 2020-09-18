@@ -31,7 +31,7 @@ class ComedyFragment: Fragment (R.layout.fragment_comedy){
 
             viewModel.getMovieGenreComedy(BuildConfig.API_KEY, 35, "pt-BR")
 
-            viewModel.responseComedy.observe(viewLifecycleOwner, Observer() { movieResponse ->
+            viewModel.responseComedy.observe(viewLifecycleOwner, Observer { movieResponse ->
                 progressBarComedy.visibility = if (movieResponse.loading == true) View.VISIBLE else View.GONE
                 when (movieResponse.status) {
                     Status.SUCCESS -> {

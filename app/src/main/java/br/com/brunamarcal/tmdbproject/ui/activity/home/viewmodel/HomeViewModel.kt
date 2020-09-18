@@ -17,26 +17,16 @@ class HomeViewModel(private val repository: Repository, private val ioDispatcher
    val movieResponse = MutableLiveData<State<MovieResponse>>()
 
   fun getMovie(apiKey: String, language: String, includeAdult: Boolean) = viewModelScope.launch {
-      movieResponse.value = State.loading(true)
-      val response = withContext(ioDispatcher){
-          repository.getMovies(apiKey,language, includeAdult)
-      }
-
-      movieResponse.postValue(handleMovieResponse(response))
-
-  }
-
-    private fun handleMovieResponse(response: Response<MovieResponse>): State<MovieResponse>{
-        if (response.isSuccessful){
-            movieResponse.value = State.loading(false)
-            response.body()?.let { result ->
-                return State.success(result)
-            }
+    try {
+        movieResponse.postValue(State.loading(true))
+        val response = withContext(ioDispatcher) {
+            repository.getMovies(apiKey, language, includeAdult)
         }
-        return State.errorMessage(response.message(), response.code())
+        movieResponse.postValue(State.success(response))
+    }catch (throwable: Throwable){
+        movieResponse.postValue(State.error(throwable))
     }
-
-
+}
     class HomeViewModelProviderFactory(private val repository: Repository, private val ioDispatcher: CoroutineDispatcher): ViewModelProvider.Factory{
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeViewModel::class.java)){

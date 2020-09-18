@@ -3,8 +3,8 @@
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="person">Person</string>
-    <string name="my_favorite">Meus Favoritos</string>
-    <string name="details_movie">Detalhes do Filme</string>
+    <string name="my_favorite">My Favorites</string>
+    <string name="details_movie"> Movie details</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="register">Register</string>

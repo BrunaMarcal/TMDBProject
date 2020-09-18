@@ -46,7 +46,7 @@ class Repository(context: Context) {
         favoriteDao.deleteFavoriteMovie(favoriteMovie)
     }
 
-    suspend fun getMovies(apiKey: String, language: String, includeAdult: Boolean) =
+    suspend fun getMovies(apiKey: String, language: String, includeAdult: Boolean): MovieResponse =
         ApiService.service.getMovie(apiKey, language, includeAdult)
 
     suspend fun getMovieGenres(apiKey: String, withGenres: Int, language: String): MovieResponse =

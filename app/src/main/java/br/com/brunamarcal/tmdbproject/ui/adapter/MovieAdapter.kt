@@ -10,7 +10,7 @@ import br.com.brunamarcal.tmdbproject.data.model.MovieResult
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class MovieAdapter(val movieList: List<MovieResult>, val clickMovie: ((movie: MovieResult) -> Unit)):
+class MovieAdapter(private val movieList: List<MovieResult>, private val clickMovie: ((movie: MovieResult) -> Unit)):
     RecyclerView.Adapter<MovieAdapter.AdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {

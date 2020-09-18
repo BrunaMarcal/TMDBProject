@@ -69,14 +69,10 @@ e
 5app/src/main/res/drawable/background_bottom_sheet.xml,a\9\a9b805a0d266175059df806117f57f4caa433d8a
 Y
 )app/src/main/res/layout/custom_dialog.xml,a\8\a83fe94e4f83409cd3dd95870855cbc370cddb6c
-V
-&app/src/main/res/layout/item_movie.xml,9\9\992384958349a2690fe10ef07ce3f2d5a186c682
 }
 Mapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/adapter/ProfileAdapter.kt,5\4\54840379b60021aeb51447d3b353b52d93a6adf3
 q
 Aapp/src/main/java/br/com/brunamarcal/tmdbproject/ClickListener.kt,b\1\b1ea1f358834cc7e3a1d9572775dbdb54dd4c281
-^
-.app/src/main/res/layout/activity_base_home.xml,0\6\06264c4ab2e57e3a1eb8a64af5d639dd0cb40877
 
 Oapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/pop/PopFragment.kt,9\0\90bf54c3476a9db8351ef85d470ae2eabf0521e3
 Ö
@@ -87,3 +83,5 @@ Uapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/comedy/ComedyFragm
 Uapp/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/action/ActionFragment.kt,f\3\f339d0584d1f603a874eee169e23dcd6e89dd88e
 ê
 `app/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/action/viewmodel/ActionViewModel.kt,2\5\2533e777ee09f91085606eb725a3a73d3bea2675
+ê
+`app/src/main/java/br/com/brunamarcal/tmdbproject/ui/fragment/comedy/viewmodel/ComedyViewModel.kt,f\7\f7a495bd80ee0fcf92a531af68641eedbb092f97
